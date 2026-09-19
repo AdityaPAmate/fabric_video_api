@@ -1,0 +1,34 @@
+# Render Blueprint — repo root ला ठेवा (fabric_video_api/render.yaml).
+# Render dashboard मध्ये "New +" -> "Blueprint" वापरून हा repo जोडला की
+# हे आपोआप वाचलं जातं.
+#
+# ⚠️ plan: starter ठेवला आहे (free नाही) — आधीच्या deployment चर्चेत
+# ठरल्याप्रमाणे: free plan वर 15 मिनिटांनी spin-down होतो आणि filesystem
+# ephemeral असतो (media/videos/ मधले जुने videos उडतात). production साठी
+# हे योग्य नाही असं आधीच सांगितलं होतं.
+
+services:
+  - type: web
+    name: fabric-video-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    healthCheckPath: /
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: ""
+      # खालच्या चार keys चे actual values Render dashboard मध्ये manually
+      # टाका (Environment tab) — sync: false म्हणजे हे render.yaml मध्ये
+      # commit होणार नाहीत, secret राहतील.
+      - key: PIXAZO_API_KEY
+        sync: false
+      - key: CLOUDFLARE_ACCOUNT_ID
+        sync: false
+      - key: CLOUDFLARE_API_TOKEN
+        sync: false
+      - key: CLOUDFLARE_FLUX_MODEL
+        sync: false

@@ -1,0 +1,34 @@
+# Version control
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+venv/
+.venv/
+env/
+
+# Django runtime/data — these should not be baked into the image
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+logs/
+
+# Stage 1 debug/output folders
+debug/
+generated_output/
+fabric/
+
+# Secrets — real values are injected as env vars on Render, never baked in
+.env
+
+# Docs/misc
+README.md
+*.md
+.vscode/
+.idea/
+.DS_Store
