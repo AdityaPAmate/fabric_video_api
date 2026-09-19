@@ -57,7 +57,7 @@ CATEGORY_INFO = {
         "subject": "the young girl",
         "possessive": "her",
         "reflexive": "herself",
-        "turn_range": "17 to 25",
+        "turn_range": "15 to 25",
         "turn_max": "25",
     },
     "kids_boy": {
